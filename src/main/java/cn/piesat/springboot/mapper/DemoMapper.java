@@ -1,6 +1,9 @@
 package cn.piesat.springboot.mapper;
 
 import cn.piesat.springboot.entity.DemoEntity;
+import cn.piesat.springboot.entity.response.ResponseDemoEntity;
+
+import java.util.List;
 
 public interface DemoMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +17,6 @@ public interface DemoMapper {
     int updateByPrimaryKeySelective(DemoEntity record);
 
     int updateByPrimaryKey(DemoEntity record);
+
+    List<DemoEntity> selectAll();
 }

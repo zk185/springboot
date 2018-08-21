@@ -40,7 +40,7 @@ public class Response {
 		return this;
 	}
 	
-	public Response setOk(int code,String api,String msg,Object data,int total){
+	public Response setOk(int code,String api,String msg,Object data,long total){
 		detailsMap = new HashMap<String,Object>(16);
 		detailsMap.put("details", data);
 		detailsMap.put("total", total);

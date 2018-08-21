@@ -22,7 +22,7 @@ public class DemoController {
     private IDemo iDemo;
 
     @PostMapping("/demoMethod")
-    public Response demoMethod(RequestDemoEntity requestDemoEntity){
+    public Response demoMethod(@RequestBody RequestDemoEntity requestDemoEntity){
         Response r = Response.getInstance();
         Integer pkid = requestDemoEntity.getPkid();
         DemoEntity de = iDemo.selectByPkid(pkid);

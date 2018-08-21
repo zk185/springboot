@@ -11,6 +11,10 @@ import java.util.Map;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+/**
+ * @author zk
+ * @date 2018/8/16 10:44
+ */
 public class Response {
 
 	@JSONField(ordinal = 4)
@@ -37,7 +41,7 @@ public class Response {
 	}
 	
 	public Response setOk(int code,String api,String msg,Object data,int total){
-		detailsMap = new HashMap<String,Object>();
+		detailsMap = new HashMap<String,Object>(16);
 		detailsMap.put("details", data);
 		detailsMap.put("total", total);
 

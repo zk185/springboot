@@ -6,6 +6,8 @@ import cn.piesat.springboot.entity.request.RequestDemoEntity;
 import cn.piesat.springboot.entity.response.ResponseDemoEntity;
 import cn.piesat.springboot.service.IDemo;
 import com.github.pagehelper.PageInfo;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,15 +28,23 @@ public class DemoController {
     @Autowired
     private IDemo iDemo;
 
-    @PostMapping("/demoMethod")
-    public Response demoMethod(@RequestBody RequestDemoEntity requestDemoEntity){
+    @ApiOperation(value = "根据主键查询数据demo")
+    @ApiImplicitParam(name = "requestDemoEntity" , value = "传入数据实体" , required = true , dataType = "RequestDemoEntity")
+    @PostMapping("/selectByPkid")
+    public Response selectByPkid(@RequestBody RequestDemoEntity requestDemoEntity){
         Response r = Response.getInstance();
         Integer pkid = requestDemoEntity.getPkid();
         DemoEntity de = iDemo.selectByPkid(pkid);
-        r.setOk(0,null,"请求成功",de);
+        if(de != null){
+            r.setOk(0,null,"请求成功",de);
+        }else{
+            r.setError(10000,null,"查询失败！");
+        }
         return r;
     }
 
+    @ApiOperation(value = "查询全部数据demo")
+    @ApiImplicitParam(name = "requestDemoEntity" , value = "传入数据实体" , required = true , dataType = "RequestDemoEntity")
     @PostMapping("/selectAll")
     public Response selectAll(@RequestBody RequestDemoEntity requestDemoEntity){
         Response r = Response.getInstance();

@@ -1,5 +1,7 @@
 server:
+  #服务端口
   port: 9090
+  #服务名称
   servlet:
     context-path: /springboot
 spring:
@@ -10,28 +12,44 @@ spring:
         password: root
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
+        #数据库驱动
         driver-class-name: com.mysql.jdbc.Driver
+        #druid监控拦截
         filters: stat
+        #最大连接数
         maxActive: 20
+        #初始化连接数
         initialSize: 1
+        #最大等待响应时间（毫秒）
         maxWait: 60000
+        #最小连接数
         minIdle: 1
+        #配置心跳 检测需要关闭的空闲连接时间（毫秒）
         timeBetweenEvictionRunsMillis: 60000
+        #连接在连接池中最小生存时间（毫秒）
         minEvictableIdleTimeMillis: 300000
+        #检测连接是否有效
         validationQuery: select 'x'
+        #建议配置为true，不影响性能，并且保证安全性。
+        #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，
+        #执行validationQuery检测连接是否有效。
         testWhileIdle: true
-        testOnBorrow: false
+        #申请连接时执行validationQuery检测连接是否有效,设置true会降低性能
+        #这里设置为true防止取到的链接不可用
+        testOnBorrow: true
+        #归还连接时执行validationQuery检测连接是否有效,设置true会降低性能
         testOnReturn: false
-        poolPreparedStatements: true
+        #打开PSCache，并且指定每个连接上PSCache的大小  如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。
+        poolPreparedStatements: false
         maxOpenPreparedStatements: 20
 
-## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
 mybatis:
   mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
   type-aliases-package: cn.piesat.springboot.entity  # 注意：对应实体类的路径
 
 #pagehelper分页插件
 pagehelper:
+    #最主要配置，只配置此项就可以使用
     helperDialect: mysql
     reasonable: true
     supportMethodsArguments: true

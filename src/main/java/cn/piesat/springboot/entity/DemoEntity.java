@@ -2,11 +2,8 @@ package cn.piesat.springboot.entity;
 
 import com.alibaba.fastjson.JSON;
 
-import java.io.Serializable;
 
-public class DemoEntity implements Serializable {
-
-    private static final long serialVersionUID = 1100502434821765640L;
+public class DemoEntity {
 
     private Integer id;
 

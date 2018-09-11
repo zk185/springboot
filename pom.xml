@@ -54,27 +54,31 @@
             <scope>test</scope>
         </dependency>
 
-        <!--  fastjson -->
+        <!--  fastjson start -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+        <!--  fastjson end -->
 
-        <!-- 分页插件 -->
+        <!-- 分页插件 start-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>${pagehelper.version}</version>
         </dependency>
-        <!-- alibaba的druid数据库连接池 -->
+        <!-- 分页插件 end-->
+
+        <!-- alibaba的druid数据库连接池 start -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.version}</version>
         </dependency>
+        <!-- alibaba的druid数据库连接池 end-->
 
-        <!-- swagger2-->
+        <!-- swagger2 start-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -86,14 +90,37 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger2.version}</version>
         </dependency>
+        <!-- swagger2 end-->
 
-        <!-- spring boot devtools 依赖包. -->
+        <!-- spring boot devtools 依赖包. start-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
             <scope>true</scope>
         </dependency>
+        <!-- spring boot devtools 依赖包. end -->
+
+        <!-- 整合redis start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <!-- 整合redis end-->
 
     </dependencies>
 

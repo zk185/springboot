@@ -1,11 +1,9 @@
 package cn.piesat.springboot.service.impl;
 
 import cn.piesat.springboot.entity.DemoEntity;
-import cn.piesat.springboot.entity.response.ResponseDemoEntity;
 import cn.piesat.springboot.mapper.DemoMapper;
 import cn.piesat.springboot.service.IDemo;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

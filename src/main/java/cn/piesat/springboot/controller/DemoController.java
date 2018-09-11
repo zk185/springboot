@@ -33,6 +33,7 @@ public class DemoController {
     @PostMapping("/selectByPkid")
     public Response selectByPkid(@RequestBody RequestDemoEntity requestDemoEntity){
         Response r = Response.getInstance();
+
         Integer pkid = requestDemoEntity.getPkid();
         DemoEntity de = iDemo.selectByPkid(pkid);
         if(de != null){

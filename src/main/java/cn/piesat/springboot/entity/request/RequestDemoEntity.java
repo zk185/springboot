@@ -5,12 +5,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
 
+import java.io.Serializable;
+
 /**
  * @author zk
  * @date 2018/8/20 10:26
  */
 @ApiModel(description = "请求参数")
-public class RequestDemoEntity extends PageEntity {
+public class RequestDemoEntity extends PageEntity implements Serializable {
 
     @ApiModelProperty(value = "主键")
     private Integer pkid;
